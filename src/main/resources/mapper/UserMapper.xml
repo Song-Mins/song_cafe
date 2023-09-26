@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.songmin.song.dao.UserMapper">
+
+    <insert id="insert" parameterType="UserDto">
+        insert into user
+        values (#{id}, #{pwd}, #{name}, #{birth}, #{email}, #{phone}, now());
+    </insert>
+
+
+    <select id="selectUser" parameterType="String" resultType="UserDto">
+        select * from user
+        where id = #{id};
+    </select>
+
+    <select id="selectDtoUser" parameterType="UserDto" resultType="UserDto">
+        select * from user
+        where <if test="id != null">id = #{id} and</if>
+        name = #{name} and email = #{email} and phone = #{phone};
+    </select>
+
+    <update id="update" parameterType="UserDto">
+        update user
+        set pwd = #{pwd}, name = #{name}, birth = #{birth}, email = #{email}, phone = #{phone}
+        where id = #{id};
+    </update>
+
+
+    <delete id="delete" parameterType="String">
+        delete from user where id = #{id};
+    </delete>
+
+
+    <delete id="deleteAll">
+        delete from user;
+    </delete>
+
+
+
+
+
+</mapper>

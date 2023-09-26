@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.songmin.song.dao.BulletinBoardMapper">
+
+    <insert id="insert" parameterType="BulletinBoardDto">
+        INSERT INTO bulletin_board
+            (cafe_name, name)
+        VALUES
+            (#{cafe_name}, #{name})
+    </insert>
+
+    <select id="selectBulletin_board" parameterType="String" resultType="String">
+        select name from bulletin_board
+        where cafe_name=#{cafe_name};
+    </select>
+
+</mapper>
