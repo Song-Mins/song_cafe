@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.songmin.song.dao.BulletinMapper">
+
+    <insert id="insert" parameterType="BulletinDto">
+        INSERT INTO bulletin
+            (cafe_name, bulletin_board, title, content, id)
+        VALUES
+            (#{cafe_name}, #{bulletin_board}, #{title}, #{content}, #{id})
+    </insert>
+
+    <select id="selectBulletin" parameterType="Integer" resultType="BulletinDto">
+        select * from bulletin
+        where bno=#{bno};
+    </select>
+
+
+
+    <select id="selectAll" resultType="BulletinDto">
+        select * from bulletin;
+    </select>
+
+    <sql id="PageCondition">
+        <choose>
+            <when test='option == "T"'>
+                and title like concat('%', #{keyword}, '%')
+            </when>
+            <when test='option == "C"'>
+                and content like concat('%', #{keyword}, '%')
+            </when>
+            <when test='option == "A"'>
+                and (title like concat('%', #{keyword}, '%')
+                or content like concat('%', #{keyword}, '%'))
+            </when>
+            <when test='readId != "" and commentBnoList == null'>
+                and id = #{readId}
+            </when>
+            <when test='commentBnoList != null'>
+                and
+                <foreach collection="commentBnoList" item="bno">
+                    bno = #{bno} or
+                </foreach>
+                false
+            </when>
+        </choose>
+    </sql>
+
+    <select id="selectPcBulletin" parameterType="PageCondition" resultType="BulletinDto">
+        select * from bulletin
+        where true <include refid="PageCondition" /> and cafe_name = #{cafe_name} <if test="bulletin_board != '전체 게시판'">and bulletin_board = #{bulletin_board}</if>
+        ORDER BY reg_date DESC, bno DESC
+        limit #{offset}, #{pageSize};
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from bulletin;
+    </select>
+
+    <select id="countPcBulletin" parameterType="PageCondition" resultType="int">
+        select count(*) from bulletin
+        where true <include refid="PageCondition" /> and cafe_name = #{cafe_name} <if test="bulletin_board != '전체 게시판'">and bulletin_board = #{bulletin_board}</if>
+    </select>
+
+    <update id="update" parameterType="BulletinDto">
+        update bulletin
+        set bulletin_board = #{bulletin_board}, title = #{title}, content = #{content}, view_cnt = #{view_cnt}, comment_cnt = #{comment_cnt}, up_date = now()
+        where bno=#{bno};
+    </update>
+
+    <delete id="deleteId" parameterType="BulletinDto" >
+        delete from bulletin where id = #{id} and cafe_name = #{cafe_name};
+    </delete>
+
+    <delete id="deleteBno" parameterType="Integer" >
+        delete from bulletin where bno = #{bno};
+    </delete>
+
+    <delete id="deleteAll">
+        delete from bulletin;
+    </delete>
+
+</mapper>

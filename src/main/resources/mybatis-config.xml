@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+        <typeAlias alias="UserDto" type="com.songmin.song.domain.UserDto"/>
+        <typeAlias alias="BulletinDto" type="com.songmin.song.domain.BulletinDto"/>
+        <typeAlias alias="BulletinBoardDto" type="com.songmin.song.domain.BulletinBoardDto"/>
+        <typeAlias alias="JoinCafeDto" type="com.songmin.song.domain.JoinCafeDto"/>
+        <typeAlias alias="CommentDto" type="com.songmin.song.domain.CommentDto"/>
+        <typeAlias alias="CafeDto" type="com.songmin.song.domain.CafeDto"/>
+        <typeAlias alias="PageCondition" type="com.songmin.song.domain.PageCondition"/>
+
+    </typeAliases>
+</configuration>

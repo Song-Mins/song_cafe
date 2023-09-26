@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.songmin.song.dao.JoinCafeMapper">
+
+    <select id="select" parameterType="String" resultType="String">
+        select join_cafe from join_cafe where id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="JoinCafeDto">
+        insert into join_cafe (id, join_cafe) values (#{id}, #{join_cafe})
+    </insert>
+
+    <insert id="delete" parameterType="JoinCafeDto">
+        delete from join_cafe where id = #{id} and join_cafe = #{join_cafe}
+    </insert>
+</mapper>

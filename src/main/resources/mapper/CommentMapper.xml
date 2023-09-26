@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.songmin.song.dao.CommentMapper">
+    <insert id="insert" parameterType="CommentDto">
+        insert into comment (pcno, bno, cafe_name, bulletin_board, comment ,id)
+        values (#{pcno}, #{bno}, #{cafe_name}, #{bulletin_board}, #{comment}, #{id});
+    </insert>
+
+    <select id="select" parameterType="int" resultType="CommentDto">
+        select * from comment where cno = #{cno};
+    </select>
+
+    <select id="selectAll" parameterType="int" resultType="CommentDto">
+        select cno, ifnull(pcno, cno) as pcno, bno, cafe_name, bulletin_board, comment, id, reg_date, up_date
+        from comment where bno = #{bno}
+        order by pcno ASC, cno ASC;
+    </select>
+
+    <select id="selectIdComments" parameterType="CommentDto" resultType="CommentDto">
+        select cno, ifnull(pcno, cno) as pcno, bno, cafe_name, bulletin_board, comment, id, reg_date, up_date
+        from comment where id = #{id} and cafe_name = #{cafe_name}
+        order by pcno ASC, cno ASC;
+    </select>
+
+    <select id="count" parameterType="int" resultType="int">
+        select count(*) from comment where bno = #{bno};
+    </select>
+
+    <update id="update" parameterType="CommentDto">
+        update comment set  comment = #{comment}, up_date = now()
+        where cno = #{cno} and id = #{id};
+    </update>
+
+
+    <delete id="delete" parameterType="int">
+        delete from comment where cno = #{cno};
+    </delete>
+
+    <delete id="deleteAll" parameterType="int">
+        delete from comment where bno = #{bno};
+    </delete>
+
+    <delete id="deleteId" parameterType="CommentDto">
+        delete from comment where id = #{id} and cafe_name = #{cafe_name};
+    </delete>
+
+</mapper>

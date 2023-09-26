@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.songmin.song.dao.CafeMapper">
+
+    <sql id="PageCondition">
+        <choose>
+            <when test="keyword != ''">
+                and name like concat('%', #{keyword}, '%')
+            </when>
+            <when test="topic != ''">
+                and topic = #{topic}
+            </when>
+            <when test="region1 != '' and region2 == '전체'">
+                and region1 = #{region1}
+            </when>
+            <when test="region1 != '' and region2 != '전체'">
+                and region1 = #{region1} and region2 = #{region2}
+            </when>
+            <when test="joinCafeList != null">
+                and
+                <foreach collection="joinCafeList" item="cafe">
+                    name = #{cafe} or
+                </foreach>
+                false
+            </when>
+        </choose>
+    </sql>
+
+    <insert id="insert" parameterType="CafeDto">
+        INSERT INTO cafe
+            (name, manager_id, topic, region1, region2, explanation)
+        VALUES
+            (#{name}, #{manager_id}, #{topic}, #{region1}, #{region2}, #{explanation})
+    </insert>
+
+    <select id="select" parameterType="String" resultType="CafeDto">
+        select * from cafe
+        where name = #{name}
+    </select>
+
+    <select id="selectPageCondition" parameterType="PageCondition" resultType="CafeDto">
+        select * from cafe
+        where true <include refid="PageCondition" />
+        order by member DESC
+        limit #{offset}, #{pageSize};
+    </select>
+
+    <select id="selectPageConditionCnt" parameterType="PageCondition" resultType="CafeDto">
+        select count(*) from cafe
+        where true <include refid="PageCondition" />
+    </select>
+
+    <select id="selectAll" resultType="CafeDto">
+        select * from cafe
+    </select>
+
+    <select id="countPageCondition" resultType="Integer" parameterType="PageCondition">
+        select count(*) from cafe where true <include refid="PageCondition" />
+    </select>
+
+
+    <update id="update" parameterType="CafeDto">
+        update cafe set member = #{member}
+        where name = #{name}
+    </update>
+
+    <delete id="delete" parameterType="String">
+        delete from cafe where name = #{name}
+    </delete>
+
+    <delete id="deleteAll">
+        delete from cafe
+    </delete>
+
+</mapper>
