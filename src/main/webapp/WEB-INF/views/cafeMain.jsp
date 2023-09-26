@@ -716,7 +716,7 @@
                                     </a>
                                 </td>
                                 <td class="bulletin_regDate">
-                                    <fmt:formatDate value="${bulletin.reg_date}" pattern="yyyy.MM.dd HH:mm:ss"/>
+                                    <fmt:formatDate value="${bulletin.reg_date}" pattern="yyyy.MM.dd."/>
                                 </td>
                                 <td class="bulletin_viewCnt">${bulletin.view_cnt}</td>
                                 <td class="bulletin_commentCnt">${bulletin.comment_cnt}</td>
