@@ -1,5 +1,5 @@
 # Project exclude paths
-/target/### Java template
+/target/**
 # Compiled class file
 *.class
 
@@ -25,6 +25,8 @@
 hs_err_pid*
 
 ### Eclipse template
+*.idea
+
 .classpath
 .project
 .metadata
