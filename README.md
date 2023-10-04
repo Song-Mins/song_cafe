@@ -11,9 +11,9 @@
 ### 회원가입 화면
 - 회원 가입
   - 아이디, 비밀번호, .... 형식에 맞지 않으면 가입 실패
-  ![ezgif com-video-to-gif](https://github.com/Song-Mins/song_cafe/assets/130220205/ea1aad48-2f13-4d3e-b4f8-ae1cd40885c5)
+  - 이미 가입된 아이디면 가입 실패   
+  ![ezgif com-video-to-gif](https://github.com/Song-Mins/song_cafe/assets/130220205/3e1427a2-5684-4a51-9f5a-b6653cb6d720)
 
-  - 이미 가입된 아이디면 가입 실패
 ### 카페홈 화면
 - 상단 메뉴바
   
