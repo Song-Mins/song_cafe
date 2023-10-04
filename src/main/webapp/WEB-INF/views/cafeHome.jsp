@@ -51,7 +51,8 @@
         }
 
 
-        #header {}
+        #header {
+        }
 
         #head_outter {
             background-color: rgb(50, 50, 100);
@@ -135,9 +136,8 @@
         }
 
 
-
         #menu_outter {
-            border-bottom: 0.5px solid rgb(180, 180, 180);
+            border-bottom: 0.5px solid rgb(180, 180, 1800);
         }
 
         #menu_inner {
@@ -160,9 +160,11 @@
         }
 
 
-        #mainContainer {}
+        #mainContainer {
+        }
 
-        #main_outter {}
+        #main_outter {
+        }
 
         #main_inner {
             width: 1100px;
@@ -181,6 +183,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 10px;
+
         }
 
         .title_area {
@@ -189,14 +192,36 @@
             margin: 0;
         }
 
+        .topic_wrap_box {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .box_click {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
         .topic_wrap {
             height: 60px;
+            width: 93%;
             display: flex;
             align-items: center;
             white-space: nowrap;
             overflow-x: auto;
             margin: 0;
             margin-bottom: 10px;
+            -ms-overflow-style: none;
+            /* 인터넷 익스플로러 */
+            scrollbar-width: none;
+            /* 파이어폭스 */
+        }
+
+        .topic_wrap::-webkit-scrollbar {
+            display: none;
+            /* 크롬, 사파리, 오페라, 엣지 */
         }
 
         .topic_area {
@@ -208,15 +233,29 @@
             padding: 0 20px;
         }
 
+        #region1_wrap_box {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
         #region1_wrap {
             height: 60px;
-            width: 95%;
+            width: 93%;
             display: flex;
             align-items: center;
             white-space: nowrap;
             overflow-x: auto;
             margin: 0;
-            margin-bottom: 30px;
+            -ms-overflow-style: none;
+            /* 인터넷 익스플로러 */
+            scrollbar-width: none;
+            /* 파이어폭스 */
+        }
+
+        #region1_wrap::-webkit-scrollbar {
+            display: none;
+            /* 크롬, 사파리, 오페라, 엣지 */
         }
 
         .region1_area {
@@ -228,16 +267,31 @@
             padding: 0 20px;
         }
 
+        #region2_wrap_box {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
         #region2_wrap {
             height: 60px;
-            width: 95%;
+            width: 93%;
             display: flex;
             align-items: center;
             white-space: nowrap;
             overflow-x: auto;
             margin: 0;
             margin-bottom: 10px;
+            -ms-overflow-style: none;
+            /* 인터넷 익스플로러 */
+            scrollbar-width: none;
+            /* 파이어폭스 */
 
+        }
+
+        #region2_wrap::-webkit-scrollbar {
+            display: none;
+            /* 크롬, 사파리, 오페라, 엣지 */
         }
 
         .region2_area {
@@ -339,13 +393,12 @@
         }
 
 
-
         #info_login_area {
-            height: 70px;
             width: 80%;
             display: flex;
             align-items: center;
             background-color: rgb(50, 50, 100);
+            padding: 10px 0;
         }
 
         #info_login_item {
@@ -353,6 +406,7 @@
             font-size: 35px;
             font-weight: 800;
         }
+
 
         #info_add_area {
             width: 80%;
@@ -367,11 +421,11 @@
         }
 
         #info_cafe_area {
-            height: 40px;
             width: 80%;
             display: flex;
             align-items: center;
             background-color: rgb(50, 50, 100);
+            padding: 10px 0;
         }
 
         #info_cafe_item {
@@ -472,14 +526,22 @@
                         <div class="title_wrap">
                             <h1 class="title_area">주제별 카페</h1>
                         </div>
-                        <div class="topic_wrap">
-                            <c:forEach var="topic" items="${allTopic}">
-                                <button class="topic_area">
-                                    <a href="<c:url value='/cafe/list?topic=${topic}&mode=topic' />">
-                                            ${topic}
-                                    </a>
-                                </button>
-                            </c:forEach>
+                        <div class="topic_wrap_box">
+                            <button id="topic_click_left" class="box_click">
+                                &#60;
+                            </button>
+                            <div class="topic_wrap">
+                                <c:forEach var="topic" items="${allTopic}">
+                                    <button class="topic_area">
+                                        <a href="<c:url value='/cafe/list?topic=${topic}&mode=topic' />">
+                                                ${topic}
+                                        </a>
+                                    </button>
+                                </c:forEach>
+                            </div>
+                            <button id="topic_click_right" class="box_click">
+                                &#62;
+                            </button>
                         </div>
                         <div class="title_wrap">
                             <h1 class="title_area">${pc.topic}</h1>
@@ -489,23 +551,41 @@
                         <div class="title_wrap">
                             <h1 class="title_area">지역별 카페</h1>
                         </div>
-                        <div id="region1_wrap">
-                            <c:forEach var="region1" items="${allRegion1}">
-                                <button class="region1_area">
-                                    <a href="<c:url value='/cafe/list?mode=region&region1=${region1}' />">
-                                            ${region1}
-                                    </a>
-                                </button>
-                            </c:forEach>
+
+                        <div id="region1_wrap_box">
+                            <button id="region1_click_left" class="box_click">
+                                &#60;
+                            </button>
+                            <div id="region1_wrap">
+                                <c:forEach var="region1" items="${allRegion1}">
+                                    <button class="region1_area">
+                                        <a href="<c:url value='/cafe/list?mode=region&region1=${region1}' />">
+                                                ${region1}
+                                        </a>
+                                    </button>
+                                </c:forEach>
+                            </div>
+                            <button id="region1_click_right" class="box_click">
+                                &#62;
+                            </button>
                         </div>
-                        <div id="region2_wrap">
-                            <c:forEach var="region2" items="${allRegion2}">
-                                <button class="region2_area">
-                                    <a href="<c:url value='/cafe/list?mode=region&region1=${pc.region1}&region2=${region2}' />">
-                                            ${region2}
-                                    </a>
-                                </button>
-                            </c:forEach>
+
+                        <div id="region2_wrap_box">
+                            <button id="region2_click_left" class="box_click">
+                                &#60;
+                            </button>
+                            <div id="region2_wrap">
+                                <c:forEach var="region2" items="${allRegion2}">
+                                    <button class="region2_area">
+                                        <a href="<c:url value='/cafe/list?mode=region&region1=${pc.region1}&region2=${region2}' />">
+                                                ${region2}
+                                        </a>
+                                    </button>
+                                </c:forEach>
+                            </div>
+                            <button id="region2_click_right" class="box_click">
+                                &#62;
+                            </button>
                         </div>
 
                         <div class="title_wrap">
@@ -526,14 +606,22 @@
                         <div class="title_wrap">
                             <h1 class="title_area">이런 카페는 어때요?</h1>
                         </div>
-                        <div class="topic_wrap">
-                            <c:forEach var="topic" items="${allTopic}">
-                                <button class="topic_area">
-                                    <a href="<c:url value='/cafe/list?topic=${topic}&mode=topic' />">
-                                            ${topic}
-                                    </a>
-                                </button>
-                            </c:forEach>
+                        <div class="topic_wrap_box">
+                            <button id="topic_click_left1" class="box_click">
+                                &#60;
+                            </button>
+                            <div class="topic_wrap">
+                                <c:forEach var="topic" items="${allTopic}">
+                                    <button class="topic_area">
+                                        <a href="<c:url value='/cafe/list?topic=${topic}&mode=topic' />">
+                                                ${topic}
+                                        </a>
+                                    </button>
+                                </c:forEach>
+                            </div>
+                            <button id="topic_click_right1" class="box_click">
+                                &#62;
+                            </button>
                         </div>
                         <div class="title_wrap">
                             <h1 class="title_area">${pc.topic}</h1>
@@ -592,7 +680,7 @@
                     <c:choose>
                         <c:when test="${loginId != ''}">
                             <div id="info_cafe_area">
-                                <a href="<c:url value='/cafe/write' />" id="cafe_item">카페생성</a>
+                                <a href="<c:url value='/cafe/write' />" id="info_cafe_item">카페생성</a>
                             </div>
                         </c:when>
                         <c:otherwise>
