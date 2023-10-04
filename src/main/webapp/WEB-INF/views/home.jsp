@@ -338,7 +338,7 @@
 <script>
     let msg = "${msg}"
 
-    if (msg == "registerFinish") {
+    if (msg == "register_OK") {
         alert("회원가입 완료")
     }
 
