@@ -89,4 +89,6 @@
 
 - 비밀번호 찾기
   - 값을 입력하지 않으면 입력해라는 알림
-  - 입력한 정보와 일치하는 회원 없으면 일치하는 정보 없다는 알림
+  - 입력한 정보와 일치하는 회원 없으면 일치하는 정보 없다는 알림   
+  ![ezgif com-video-to-gif (5)](https://github.com/Song-Mins/song_cafe/assets/130220205/a750afc7-6b2e-4f35-a01c-05fbc5fed106)
+
