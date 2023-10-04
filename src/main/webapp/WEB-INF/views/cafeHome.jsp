@@ -709,7 +709,31 @@
         </div>
     </div>
 </div>
+<script>
+    $('#topic_click_left').click(function () {
+        $('#topic_wrap').scrollLeft($('#topic_wrap').scrollLeft() - 80)
+    })
 
+    $('#topic_click_right').click(function () {
+        $('#topic_wrap').scrollLeft($('#topic_wrap').scrollLeft() + 80)
+    })
+
+    $('#region1_click_left').click(function () {
+        $('#region1_wrap').scrollLeft($('#region1_wrap').scrollLeft() - 80)
+    })
+
+    $('#region1_click_right').click(function () {
+        $('#region1_wrap').scrollLeft($('#region1_wrap').scrollLeft() + 80)
+    })
+
+    $('#region2_click_left').click(function () {
+        $('#region2_wrap').scrollLeft($('#region2_wrap').scrollLeft() - 80)
+    })
+
+    $('#region2_click_right').click(function () {
+        $('#region2_wrap').scrollLeft($('#region2_wrap').scrollLeft() + 80)
+    })
+</script>
 
 </body>
 </html>
