@@ -17,7 +17,8 @@
 ### 카페홈 화면
 - 상단 메뉴바
   - 주제별, 지역별, 카페 랭킹, 내가 가입한 카페(로그인 상태)
-  
+  ![ezgif com-video-to-gif (1)](https://github.com/Song-Mins/song_cafe/assets/130220205/ad59e59c-4407-4845-becd-6402ffbf341b)
+
 - 카페 검색 
   
 - 카페 생성
