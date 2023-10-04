@@ -19,8 +19,9 @@
   - 주제별, 지역별, 카페 랭킹, 내가 가입한 카페(로그인 상태)
   ![ezgif com-video-to-gif (1)](https://github.com/Song-Mins/song_cafe/assets/130220205/ad59e59c-4407-4845-becd-6402ffbf341b)
 
-- 카페 검색 
-  
+- 카페 검색   
+  ![ezgif com-video-to-gif (2)](https://github.com/Song-Mins/song_cafe/assets/130220205/b3357067-38bd-4e4b-a163-0991903339ee)
+
 - 카페 생성
   - (로그인 상태) 일때만 카페 생성 버튼이 보임
   - (로그인 상태) 가 아니면 로그인 버튼이 보임
