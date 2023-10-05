@@ -147,9 +147,22 @@
             font-size: 13px;
             padding-bottom: 5px;
             border-bottom: 0.5px solid black;
-
-
         }
+
+        #pwd_result {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+        }
+
+        #id_result {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+        }
+
     </style>
 </head>
 <body>

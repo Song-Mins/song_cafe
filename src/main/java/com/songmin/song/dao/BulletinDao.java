@@ -22,6 +22,7 @@ public interface BulletinDao {
 
     //  D(삭제)
     int deleteBulletin(Integer bno) throws Exception;
+    int deleteBulletin(BulletinDto bulletinDto) throws Exception;
     void deleteBulletin() throws Exception;
 
 

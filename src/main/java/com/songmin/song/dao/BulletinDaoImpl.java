@@ -59,7 +59,13 @@ public class BulletinDaoImpl implements BulletinDao {
         session.delete(namespace+"deleteAll");
     }
     @Override
-    public int deleteBulletin(Integer bno) throws Exception {
-        return session.delete(namespace+"delete", bno);
+    public int deleteBulletin(BulletinDto bulletinDto) throws Exception {
+        return session.delete(namespace+"deleteId", bulletinDto);
     }
+    @Override
+    public int deleteBulletin(Integer bno) throws Exception {
+        return session.delete(namespace+"deleteBno", bno);
+    }
+
+
 }

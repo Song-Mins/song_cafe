@@ -212,6 +212,7 @@
             height: 40%;
             width: 90%;
             margin: 0;
+            padding: 0 10px;
         }
 
         #cafe_explanation_area {
@@ -221,7 +222,9 @@
         #cafe_explanation_txt {
             height: 50%;
             width: 90%;
+            font-size: 15px;
             margin: 0;
+            padding: 10px;
         }
 
 
@@ -372,7 +375,7 @@
                     <div id="cafe_agree_area" class="cafe_area">
                         <label for="cafe_agree_chk" id="agree_lbl" class="cafe_lbl">정책동의</label>
                         <input type="checkbox" id="cafe_agree_chk">
-                        <label for="cafe_agree_chk" id="chk_lbl" class="cafe_lbl">카페 개인정보보호정책에 동의합니다.</label>
+                        <label for="cafe_agree_chk" id="cafe_chk_lbl" class="cafe_lbl">카페 개인정보보호정책에 동의합니다.</label>
                     </div>
 
                     <input type="hidden" name="manager_id" value="${sessionScope.id}">

@@ -12,4 +12,7 @@
         insert into join_cafe (id, join_cafe) values (#{id}, #{join_cafe})
     </insert>
 
+    <insert id="delete" parameterType="JoinCafeDto">
+        delete from join_cafe where id = #{id} and join_cafe = #{join_cafe}
+    </insert>
 </mapper>

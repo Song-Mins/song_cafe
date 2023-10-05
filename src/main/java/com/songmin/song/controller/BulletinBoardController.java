@@ -49,6 +49,7 @@ public class BulletinBoardController {
         }
 
         rttr.addAttribute("cafe_name", bulletinBoardDto.getCafe_name());
+        rttr.addAttribute("bulletin_board", bulletinBoardDto.getName());
         rttr.addAttribute("manager_id", manager_id);
         rttr.addAttribute("loginId", loginId);
 

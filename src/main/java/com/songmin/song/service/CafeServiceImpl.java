@@ -35,7 +35,7 @@ public class CafeServiceImpl implements CafeService {
         // 게시판 생성
         BulletinBoardDto bulletinBoardDto = new BulletinBoardDto();
         bulletinBoardDto.setCafe_name(cafeDto.getName());
-        bulletinBoardDto.setName("전체게시판");
+        bulletinBoardDto.setName("전체 게시판");
         int rowCnt = bulletinBoardDao.insertBulletinBoard(bulletinBoardDto);
 
 

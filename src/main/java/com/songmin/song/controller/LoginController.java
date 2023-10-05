@@ -49,6 +49,7 @@ public class LoginController {
 				rttr.addAttribute("keyword", pc.getKeyword());
 				rttr.addAttribute("readId", pc.getReadId());
 				rttr.addAttribute("cafe_name", pc.getCafe_name());
+				rttr.addAttribute("bulletin_board", pc.getBulletin_board());
 
 				return "redirect:/login/login";
 			}
@@ -78,6 +79,7 @@ public class LoginController {
 
 
 		rttr.addAttribute("cafe_name", pc.getCafe_name());
+		rttr.addAttribute("bulletin_board", pc.getBulletin_board());
 		rttr.addAttribute("page", pc.getPage());
 		rttr.addAttribute("option", pc.getOption());
 		rttr.addAttribute("keyword", pc.getKeyword());
@@ -91,7 +93,6 @@ public class LoginController {
 
 	private boolean loginCheck(String id, String pwd) throws Exception {
 				return userService.loginCheck(id, pwd);
-
 	}
 
 

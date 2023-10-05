@@ -27,7 +27,9 @@ public class BulletinServiceImpl implements BulletinService {
 
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public BulletinDto readBulletin(Integer bno) throws Exception {
+
         //  게시글 읽어오기
         BulletinDto bulletinDto = bulletinDao.selectBulletin(bno);
 

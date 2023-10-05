@@ -8,4 +8,6 @@ public interface JoinCafeService {
     List<String> read(String id) throws Exception;
 
     int add(JoinCafeDto joinCafeDto) throws Exception;
+
+    int remove(JoinCafeDto joinCafeDto) throws Exception;
 }

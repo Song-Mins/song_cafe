@@ -209,6 +209,7 @@
 
                     <input type="hidden" name="url" value="${url}">
                     <input type="hidden" name="cafe_name" value="${pc.cafe_name}">
+                    <input type="hidden" name="bulletin_board" value="${pc.bulletin_board}">
                     <input type="hidden" name="page" value="${pc.page}">
                     <input type="hidden" name="option" value="${pc.option}">
                     <input type="hidden" name="keyword" value="${pc.keyword}">

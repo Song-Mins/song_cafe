@@ -137,7 +137,7 @@
 
 
         #menu_outter {
-            border-bottom: 0.5px solid rgb(180, 180, 1800);
+            border-bottom: 0.5px solid rgb(180, 180, 180);
         }
 
         #menu_inner {
@@ -182,8 +182,6 @@
             height: 75px;
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
-
         }
 
         .title_area {
@@ -192,10 +190,9 @@
             margin: 0;
         }
 
-        .topic_wrap_box {
+        #topic_wrap_box1 {
             display: flex;
             justify-content: space-between;
-
         }
 
         .box_click {
@@ -204,7 +201,7 @@
             font-weight: 500;
         }
 
-        .topic_wrap {
+        #topic_wrap1 {
             height: 60px;
             width: 93%;
             display: flex;
@@ -212,31 +209,54 @@
             white-space: nowrap;
             overflow-x: auto;
             margin: 0;
-            margin-bottom: 10px;
             -ms-overflow-style: none;
             /* 인터넷 익스플로러 */
             scrollbar-width: none;
             /* 파이어폭스 */
         }
 
-        .topic_wrap::-webkit-scrollbar {
+        #topic_wrap1::-webkit-scrollbar {
+            display: none;
+            /* 크롬, 사파리, 오페라, 엣지 */
+        }
+
+        #topic_wrap_box2 {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        #topic_wrap2 {
+            height: 60px;
+            width: 93%;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            overflow-x: auto;
+            margin: 0;
+            -ms-overflow-style: none;
+            /* 인터넷 익스플로러 */
+            scrollbar-width: none;
+            /* 파이어폭스 */
+        }
+
+        #topic_wrap2::-webkit-scrollbar {
             display: none;
             /* 크롬, 사파리, 오페라, 엣지 */
         }
 
         .topic_area {
-            height: 100%;
+            height: 70%;
             font-size: 16px;
             border: 1px solid rgb(162, 161, 161);
             border-radius: 10%;
             margin-right: 35px;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         #region1_wrap_box {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 15px;
         }
 
         #region1_wrap {
@@ -259,12 +279,12 @@
         }
 
         .region1_area {
-            height: 100%;
+            height: 70%;
             font-size: 16px;
             border: 1px solid rgb(162, 161, 161);
             border-radius: 10%;
             margin-right: 35px;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         #region2_wrap_box {
@@ -281,7 +301,6 @@
             white-space: nowrap;
             overflow-x: auto;
             margin: 0;
-            margin-bottom: 10px;
             -ms-overflow-style: none;
             /* 인터넷 익스플로러 */
             scrollbar-width: none;
@@ -295,12 +314,12 @@
         }
 
         .region2_area {
-            height: 100%;
+            height: 70%;
             font-size: 16px;
             border: 1px solid rgb(162, 161, 161);
             border-radius: 10%;
             margin-right: 35px;
-            padding: 0 20px;
+            padding: 0 15px
         }
 
         #cafe_wrap {
@@ -330,6 +349,7 @@
             width: 100%;
             font-size: 20px;
             font-weight: 600;
+            white-space: nowrap;
             overflow: hidden;
             padding-top: 10px;
         }
@@ -526,11 +546,11 @@
                         <div class="title_wrap">
                             <h1 class="title_area">주제별 카페</h1>
                         </div>
-                        <div class="topic_wrap_box">
-                            <button id="topic_click_left" class="box_click">
+                        <div id="topic_wrap_box1">
+                            <button id="topic_click_left1" class="box_click">
                                 &#60;
                             </button>
-                            <div class="topic_wrap">
+                            <div id="topic_wrap1">
                                 <c:forEach var="topic" items="${allTopic}">
                                     <button class="topic_area">
                                         <a href="<c:url value='/cafe/list?topic=${topic}&mode=topic' />">
@@ -539,7 +559,7 @@
                                     </button>
                                 </c:forEach>
                             </div>
-                            <button id="topic_click_right" class="box_click">
+                            <button id="topic_click_right1" class="box_click">
                                 &#62;
                             </button>
                         </div>
@@ -606,11 +626,11 @@
                         <div class="title_wrap">
                             <h1 class="title_area">이런 카페는 어때요?</h1>
                         </div>
-                        <div class="topic_wrap_box">
-                            <button id="topic_click_left1" class="box_click">
+                        <div id="topic_wrap_box2">
+                            <button id="topic_click_left2" class="box_click">
                                 &#60;
                             </button>
-                            <div class="topic_wrap">
+                            <div id="topic_wrap2">
                                 <c:forEach var="topic" items="${allTopic}">
                                     <button class="topic_area">
                                         <a href="<c:url value='/cafe/list?topic=${topic}&mode=topic' />">
@@ -619,7 +639,7 @@
                                     </button>
                                 </c:forEach>
                             </div>
-                            <button id="topic_click_right1" class="box_click">
+                            <button id="topic_click_right2" class="box_click">
                                 &#62;
                             </button>
                         </div>
@@ -710,28 +730,37 @@
     </div>
 </div>
 <script>
-    $('#topic_click_left').click(function () {
-        $('#topic_wrap').scrollLeft($('#topic_wrap').scrollLeft() - 80)
+    $('#topic_click_left1').click(function () {
+        $('#topic_wrap1').scrollLeft($('#topic_wrap1').scrollLeft() - 200)
     })
 
-    $('#topic_click_right').click(function () {
-        $('#topic_wrap').scrollLeft($('#topic_wrap').scrollLeft() + 80)
+    $('#topic_click_right1').click(function () {
+        $('#topic_wrap1').scrollLeft($('#topic_wrap1').scrollLeft() + 200)
     })
+
+    $('#topic_click_left2').click(function () {
+        $('#topic_wrap2').scrollLeft($('#topic_wrap2').scrollLeft() - 200)
+    })
+
+    $('#topic_click_right2').click(function () {
+        $('#topic_wrap2').scrollLeft($('#topic_wrap2').scrollLeft() + 200)
+    })
+
 
     $('#region1_click_left').click(function () {
-        $('#region1_wrap').scrollLeft($('#region1_wrap').scrollLeft() - 80)
+        $('#region1_wrap').scrollLeft($('#region1_wrap').scrollLeft() - 200)
     })
 
     $('#region1_click_right').click(function () {
-        $('#region1_wrap').scrollLeft($('#region1_wrap').scrollLeft() + 80)
+        $('#region1_wrap').scrollLeft($('#region1_wrap').scrollLeft() + 200)
     })
 
     $('#region2_click_left').click(function () {
-        $('#region2_wrap').scrollLeft($('#region2_wrap').scrollLeft() - 80)
+        $('#region2_wrap').scrollLeft($('#region2_wrap').scrollLeft() - 200)
     })
 
     $('#region2_click_right').click(function () {
-        $('#region2_wrap').scrollLeft($('#region2_wrap').scrollLeft() + 80)
+        $('#region2_wrap').scrollLeft($('#region2_wrap').scrollLeft() + 200)
     })
 </script>
 

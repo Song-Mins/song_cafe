@@ -221,14 +221,13 @@ public class CafeController {
     }
 
     @GetMapping("/read")
-    public String read(String cafe_name, String loginId, HttpServletRequest request, Model m, RedirectAttributes rttr) {
-
-        HttpSession session = request.getSession(false);
+    public String read(String cafe_name, String loginId, String manager_id, HttpServletRequest request, Model m, RedirectAttributes rttr) {
 
         //  로그인 상태가 아니면
-        if (session == null) {
+        if (loginId.equals("")) {
             rttr.addAttribute("url", "/cafe/read");
             rttr.addAttribute("cafe_name", cafe_name);
+
             return "redirect:/login/login";
         }
 
@@ -238,6 +237,19 @@ public class CafeController {
         List<String> joinCafeList = new ArrayList<>();
 
         try {
+            //	현재 아이디의 가입한 카페들 가져오기
+            joinCafeList = joinCafeService.read(loginId);
+            System.out.println("joinCafeList = " + joinCafeList);
+
+            //  카페 가입 상태가 아니면
+            if (!joinCafeList.contains(cafe_name)) {
+                rttr.addAttribute("cafe_name", cafe_name);
+                rttr.addAttribute("loginId", loginId);
+                rttr.addAttribute("manager_id", manager_id);
+                rttr.addFlashAttribute("msg", "cafeJoin");
+                return "redirect:/bulletin/list";
+            }
+
             cafeDto = cafeService.read(cafe_name);
 
             //	현재 카페의 게시판들 가져오기
@@ -273,6 +285,30 @@ public class CafeController {
         rttr.addAttribute("cafe_name", joinCafeDto.getJoin_cafe());
         rttr.addAttribute("manager_id", manager_id);
         rttr.addFlashAttribute("msg", "cafeJOIN_OK");
+        return "redirect:/bulletin/list";
+    }
+
+    @GetMapping("/delete")
+    public String delete(String readId, String cafe_name, String loginId, String manager_id, RedirectAttributes rttr) {
+
+        JoinCafeDto joinCafeDto = new JoinCafeDto();
+        joinCafeDto.setId(readId);
+        joinCafeDto.setJoin_cafe(cafe_name);
+
+        try {
+            int num = joinCafeService.remove(joinCafeDto);
+            if (num != 1) {
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            return "error";
+        }
+
+        rttr.addAttribute("cafe_name", cafe_name);
+        rttr.addAttribute("loginId", loginId);
+        rttr.addAttribute("manager_id", manager_id);
+        rttr.addFlashAttribute("msg", "userDLT_OK");
+
         return "redirect:/bulletin/list";
     }
 

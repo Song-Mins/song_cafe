@@ -49,7 +49,7 @@
 
     <select id="selectPcBulletin" parameterType="PageCondition" resultType="BulletinDto">
         select * from bulletin
-        where true <include refid="PageCondition" /> and cafe_name = #{cafe_name} <if test="bulletin_board != '전체게시판'">and bulletin_board = #{bulletin_board}</if>
+        where true <include refid="PageCondition" /> and cafe_name = #{cafe_name} <if test="bulletin_board != '전체 게시판'">and bulletin_board = #{bulletin_board}</if>
         ORDER BY reg_date DESC, bno DESC
         limit #{offset}, #{pageSize};
     </select>
@@ -60,16 +60,20 @@
 
     <select id="countPcBulletin" parameterType="PageCondition" resultType="int">
         select count(*) from bulletin
-        where true <include refid="PageCondition" /> and cafe_name = #{cafe_name} <if test="bulletin_board != ''">and bulletin_board = #{bulletin_board}</if>
+        where true <include refid="PageCondition" /> and cafe_name = #{cafe_name} <if test="bulletin_board != '전체 게시판'">and bulletin_board = #{bulletin_board}</if>
     </select>
 
     <update id="update" parameterType="BulletinDto">
         update bulletin
-        set bulletin_board = #{bulletin_board}, title = #{title}, content = #{content}, up_date = now()
+        set bulletin_board = #{bulletin_board}, title = #{title}, content = #{content}, view_cnt = #{view_cnt}, comment_cnt = #{comment_cnt}, up_date = now()
         where bno=#{bno};
     </update>
 
-    <delete id="delete" parameterType="Integer" >
+    <delete id="deleteId" parameterType="BulletinDto" >
+        delete from bulletin where id = #{id} and cafe_name = #{cafe_name};
+    </delete>
+
+    <delete id="deleteBno" parameterType="Integer" >
         delete from bulletin where bno = #{bno};
     </delete>
 

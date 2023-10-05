@@ -98,8 +98,13 @@
         .reg_area {
             height: 13%;
             display: flex;
-            justify-content: center;
-            align-items: flex-end;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .reg_error {
+            color: red;
         }
 
         .reg_ipt {
@@ -196,18 +201,15 @@
 
                 </form:form>
             </div>
-
-
         </div>
     </div>
 </div>
 
 <script>
-    let msg =
-    ${msg}
+    let msg = ${msg}
 
-    if (msg == "registerError") {
-        alert("회원가입에 실패하였습니다.")
+    if (msg == "register_ERR") {
+        alert("중복된 아이디 입니다.")
     }
 </script>
 </body>

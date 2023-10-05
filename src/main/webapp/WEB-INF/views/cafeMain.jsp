@@ -137,13 +137,14 @@
         .board_name_item {
             height: 30%;
             margin: 5px;
+            padding: 0 10px;
             font-weight: 500;
         }
 
         #board_btn_item {
             width: 70%;
             height: 50%;
-            background-color: rgb(12, 3, 111);
+            background-color: rgb(50, 50, 100);
             color: white;
             font-size: 25px;
             font-weight: 600;
@@ -207,6 +208,8 @@
 
         #cafe_area {
             font-size: 100px;
+            white-space: nowrap;
+            overflow: hidden;
         }
 
         #mainContainer {}
@@ -222,7 +225,7 @@
 
         #leftMain {
             width: 18%;
-
+            margin-bottom: 80px;
         }
 
         #cafeInfo_wrap {
@@ -381,12 +384,15 @@
         .search_slt {
             height: 100%;
             margin: 0 10px 0 0;
+            padding: 0 10px;
+
         }
 
         .search_ipt {
             height: 100%;
             width: 30%;
             margin: 0;
+            padding: 0 10px;
         }
 
         .search_btn {
@@ -494,9 +500,9 @@
         <div class="board_area" id="board_btn_area">
             <button type="submit" id="board_btn_item">게시판 생성</button>
         </div>
-        <input type="hidden" name="cafe_name" value="${cafeDto.name}">
+        <input type="hidden" name="cafe_name" value="${pc.cafe_name}">
         <input type="hidden" name="loginId" value="${loginId}">
-        <input type="hidden" name="manager_id" value="${cafeDto.manager_id}">
+        <input type="hidden" name="manager_id" value="${manager_id}">
 
     </form>
 </div>
@@ -559,10 +565,10 @@
                                 <%--    카페 가입 상태이면    --%>
                                 <c:when test="${joinCafeList.contains(pc.cafe_name)}">
                                     <div class="loginInfo_area1">
-                                        <a href="<c:url value=''/>">내가 쓴 글보기</a>
+                                        <a href="<c:url value='/bulletin/list?readId=${loginId}&cafe_name=${pc.cafe_name}&loginId=${loginId}&manager_id=${manager_id}' />">내가 쓴 글보기</a>
                                     </div>
                                     <div class="loginInfo_area1">
-                                        <a href="<c:url value=''/>">내가 댓글 쓴 글보기</a>
+                                        <a href="<c:url value='/comment/list?readId=${loginId}&cafe_name=${pc.cafe_name}&loginId=${loginId}&manager_id=${manager_id}' />">내가 댓글 쓴 글보기</a>
                                     </div>
                                     <div class="loginInfo_area2">
                                             <%--    cafe_name, loginId + 요청 - bulletinForm.jsp      --%>
@@ -615,7 +621,7 @@
                     <c:when test="${mode == 'userBulletin' || mode == 'userComment'}">
                         <div id="userInfo_wrap">
                             <h4 id="userInfo_area">
-                                    ${pc.readId} 님
+                                    ${pc.readId} 님 <c:if test="${mode == 'userBulletin'}"> 작성글</c:if><c:if test="${mode == 'userComment'}"> 댓글단 글</c:if>
                             </h4>
                         </div>
                         <div id="user_wrap">
@@ -630,8 +636,9 @@
                             </div>
                             <c:if test="${loginId == manager_id}">
                                 <div class="user_area">
-                                    <a href="<c:url value="user/delete?readId=${pc.readId}&cafe_name=${pc.cafe_name}&loginId=${loginId}&manager_id=${manager_id}" />">회원
-                                        강퇴</a>
+                                    <a href="<c:url value="/cafe/delete?readId=${pc.readId}&cafe_name=${pc.cafe_name}&loginId=${loginId}&manager_id=${manager_id}" />">회원
+                                        강퇴
+                                    </a>
                                 </div>
                             </c:if>
                         </div>
@@ -704,7 +711,7 @@
                                 <td class="bulletin_title">
                                         <%--    bno, PageCondition + 요청 - bulletinComment.jsp   or   loginForm.jsp    --%>
                                         <%--    게시글을 읽어오기 위해, 게시글의 목록버튼 클릭시 원래 보던 카페 + 카페 상태로 돌아오기 위해   --%>
-                                    <a href="<c:url value='/bulletin/read?bno=${bulletin.bno}&page=${ph.pc.page}&option=${ph.pc.option}&keyword=${ph.pc.keyword}&cafe_name=${ph.pc.cafe_name}&bulletin_board=${ph.pc.bulletin_board}&manager_id=${manager_id}' />">
+                                    <a href="<c:url value='/bulletin/read?bno=${bulletin.bno}&page=${ph.pc.page}&option=${ph.pc.option}&keyword=${ph.pc.keyword}&cafe_name=${ph.pc.cafe_name}&bulletin_board=${ph.pc.bulletin_board}&loginId=${loginId}&manager_id=${manager_id}' />">
                                             ${bulletin.title}
                                     </a>
                                 </td>
@@ -777,21 +784,21 @@
                         <%--    사용자 모드가 아닐때--%>
                         <c:otherwise>
                             <c:if test="${ph.showPrev}">
-                                <a href="<c:url value='/bulletin/list?page=${ph.beginPage-1}&option=${ph.pc.option}&keyword=${ph.pc.keyword}&cafe_name=${pc.cafe_name}&loginId=${loginId}&manager_id=${manager_id}' />"
+                                <a href="<c:url value='/bulletin/list?page=${ph.beginPage-1}&option=${ph.pc.option}&keyword=${ph.pc.keyword}&cafe_name=${pc.cafe_name}&bulletin_board=${pc.bulletin_board}&loginId=${loginId}&manager_id=${manager_id}' />"
                                    class="page_item">
                                     &laquo;
                                 </a>
                             </c:if>
 
                             <c:forEach var="i" begin="${ph.beginPage}" end="${ph.endPage}">
-                                <a href="<c:url value='/bulletin/list?page=${i}&option=${ph.pc.option}&keyword=${ph.pc.keyword}&cafe_name=${pc.cafe_name}&loginId=${loginId}&manager_id=${manager_id}' />"
+                                <a href="<c:url value='/bulletin/list?page=${i}&option=${ph.pc.option}&keyword=${ph.pc.keyword}&cafe_name=${pc.cafe_name}&bulletin_board=${pc.bulletin_board}&loginId=${loginId}&manager_id=${manager_id}' />"
                                    class="page_item">
                                         ${i}
                                 </a>
                             </c:forEach>
 
                             <c:if test="${ph.showNext}">
-                                <a href="<c:url value='/bulletin/list?page=${ph.endPage+1}&option=${ph.pc.option}&keyword=${ph.pc.keyword}&cafe_name=${pc.cafe_name}&loginId=${loginId}&manager_id=${manager_id}' />"
+                                <a href="<c:url value='/bulletin/list?page=${ph.endPage+1}&option=${ph.pc.option}&keyword=${ph.pc.keyword}&cafe_name=${pc.cafe_name}&bulletin_board=${pc.bulletin_board}&loginId=${loginId}&manager_id=${manager_id}' />"
                                    class="page_item">
                                     &raquo;
                                 </a>
@@ -825,6 +832,12 @@
     }
     if (msg == "bulletin_boardWRT_ERR") {
         alert("게시판 생성 실패")
+    }
+    if (msg == "userDLT_OK") {
+        alert("강퇴 성공")
+    }
+    if (msg == "cafeJoin") {
+        alert("카페에 가입 하세요")
     }
 
     $("#bulletinBoardCreate_wrap").click(function () {

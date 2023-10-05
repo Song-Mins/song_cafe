@@ -6,6 +6,7 @@ import com.songmin.song.domain.JoinCafeDto;
 import com.songmin.song.domain.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -38,12 +39,6 @@ public class UserServiceImpl implements UserService {
     public UserDto get(UserDto userDto) throws Exception {
         return userDao.selectUser(userDto);
     }
-
-    @Override
-    public int remove(String id) throws Exception {
-        return userDao.deleteUser(id);
-    }
-
 
     @Override
     public boolean registerCheck(UserDto user) throws Exception {

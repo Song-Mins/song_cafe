@@ -17,12 +17,6 @@ public class CommentDto {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd. HH:mm:ss")
     private Date up_date;
 
-    public CommentDto() {}
-    public CommentDto(Integer bno, String comment, String id) {
-        this.bno = bno;
-        this.comment = comment;
-        this.id = id;
-    }
 
     public Integer getCno() {
         return cno;
@@ -48,12 +42,12 @@ public class CommentDto {
         this.bno = bno;
     }
 
-    public String getCafe_kind() {
+    public String getCafe_name() {
         return cafe_name;
     }
 
-    public void setCafe_kind(String cafe_kind) {
-        this.cafe_name = cafe_kind;
+    public void setCafe_name(String cafe_name) {
+        this.cafe_name = cafe_name;
     }
 
     public String getBulletin_board() {

@@ -35,9 +35,9 @@ public class BulletinController {
     @GetMapping("/list")
     public String list(@ModelAttribute("pc") PageCondition pc, String manager_id, String loginId, Model m) {
 
-        //	게시판 조건이 없으면 "전체게시판" 으로 초기화
+        //	게시판 조건이 없으면 "전체 게시판" 으로 초기화
         if (pc.getBulletin_board().equals("")) {
-            pc.setBulletin_board("전체게시판");
+            pc.setBulletin_board("전체 게시판");
         }
 
 		//	page 조건이 null 이면 1로 초기화
@@ -64,6 +64,7 @@ public class BulletinController {
             totalCnt = bulletinService.countPageConditionBulletins(pc);
             //	ph(전체 페이지 관리) 생성
             ph = new PageHandler(pc, totalCnt);
+            System.out.println("ph = " + ph);
 
             //	현재 카페의 게시판들 가져오기
             bulletin_boardList = bulletinBoardService.readBulletin_board(pc.getCafe_name());
@@ -100,14 +101,12 @@ public class BulletinController {
 
     //	게시글 읽어오는 메서드 - bulletinComment.jsp
     @GetMapping("/read")
-    public String read(String bno, String manager_id, @ModelAttribute("pc") PageCondition pc, HttpServletRequest request, Model m, RedirectAttributes rttr) {
+    public String read(String bno, String loginId, String manager_id, @ModelAttribute("pc") PageCondition pc, Model m, RedirectAttributes rttr) {
 
-        System.out.println("comment --- pc = " + pc);
-
-        HttpSession session = request.getSession(false);
+        System.out.println("read - pc = " + pc);
 
         //  로그인 상태가 아니면
-        if (session == null) {
+        if (loginId.equals("")) {
             //	url, bno, pc + redirect - loginForm.jsp
             rttr.addAttribute("url", "/bulletin/read");
             rttr.addAttribute("bno", bno);
@@ -115,10 +114,12 @@ public class BulletinController {
             rttr.addAttribute("option", pc.getOption());
             rttr.addAttribute("keyword", pc.getKeyword());
             rttr.addAttribute("cafe_name", pc.getCafe_name());
+            rttr.addAttribute("bulletin_board", pc.getBulletin_board());
+            rttr.addAttribute("manager_id", manager_id);
             return "redirect:/login/login";
         }
 
-        //  로그인 상태이면
+        //  로그인 상태 이면
 
         //	필요 변수 생성
         BulletinDto bulletinDto = null;
@@ -131,7 +132,18 @@ public class BulletinController {
             //	현재 카페의 게시판들 가져오기
             bulletin_boardList = bulletinBoardService.readBulletin_board(pc.getCafe_name());
             //	현재 아이디의 가입한 카페들 가져오기
-            joinCafeList = joinCafeService.read(bulletinDto.getId());
+            joinCafeList = joinCafeService.read(loginId);
+            System.out.println("joinCafeList = " + joinCafeList);
+
+            //  카페 가입 상태가 아니면
+            if (!joinCafeList.contains(pc.getCafe_name())) {
+                rttr.addAttribute("cafe_name", pc.getCafe_name());
+                rttr.addAttribute("loginId", loginId);
+                rttr.addAttribute("manager_id", manager_id);
+                rttr.addFlashAttribute("msg", "cafeJoin");
+                return "redirect:/bulletin/list";
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
             return "error";

@@ -9,8 +9,6 @@ public interface UserService {
     UserDto get(String id) throws Exception;
     UserDto get(UserDto userDto) throws Exception;
 
-    int remove(String id) throws Exception;
-
     boolean registerCheck(UserDto user) throws Exception;
 
     boolean loginCheck(String id, String pwd) throws Exception;

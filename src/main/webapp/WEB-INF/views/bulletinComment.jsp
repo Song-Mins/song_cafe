@@ -128,13 +128,14 @@
         .board_name_item {
             height: 30%;
             margin: 5px;
+            padding: 0 10px;
             font-weight: 500;
         }
 
         #board_btn_item {
             width: 70%;
             height: 50%;
-            background-color: rgb(12, 3, 111);
+            background-color: rgb(50, 50, 100);
             color: white;
             font-size: 25px;
             font-weight: 600;
@@ -447,17 +448,20 @@
         }
 
         .comment_rmvBtn {
-            margin: 0 5px 0 0;
+            font-size: 12px;
+            margin: 0 6px 0 0;
 
         }
 
         .comment_modBtn {
-            margin: 0 5px 0 0;
+            font-size: 12px;
+            margin: 0 6px 0 0;
 
 
         }
 
         .comment_repBtn {
+            font-size: 12px;
             margin: 0;
 
         }
@@ -504,6 +508,8 @@
         #commentMdf_wrap {
             display: none;
             width: 100%;
+            margin-top: 30px;
+            margin-bottom: 60px;
         }
 
         #commentMdf_area {
@@ -532,7 +538,8 @@
         #commentRpl_wrap {
             display: none;
             width: 100%;
-            margin-bottom: 200px;
+            margin-top: 30px;
+            margin-bottom: 60px;
         }
 
         #commentRpl_area {
@@ -575,9 +582,9 @@
         <div class="board_area" id="board_btn_area">
             <button type="submit" id="board_btn_item">게시판 생성</button>
         </div>
-        <input type="hidden" name="cafe_name" value="${cafeDto.name}">
+        <input type="hidden" name="cafe_name" value="${pc.cafe_name}">
         <input type="hidden" name="loginId" value="${loginId}">
-        <input type="hidden" name="manager_id" value="${cafeDto.manager_id}">
+        <input type="hidden" name="manager_id" value="${manager_id}">
 
     </form>
 </div>
@@ -630,10 +637,10 @@
                         <%--    카페 가입 상태이면    --%>
                         <c:when test="${joinCafeList.contains(pc.cafe_name)}">
                             <div class="loginInfo_area1">
-                                <a href="<c:url value=''/>">내가 쓴 글보기</a>
+                                <a href="<c:url value='/bulletin/list?readId=${loginId}&cafe_name=${pc.cafe_name}&loginId=${loginId}&manager_id=${manager_id}' />">내가 쓴 글보기</a>
                             </div>
                             <div class="loginInfo_area1">
-                                <a href="<c:url value=''/>">내가 댓글 쓴 글보기</a>
+                                <a href="<c:url value='/comment/list?readId=${loginId}&cafe_name=${pc.cafe_name}&loginId=${loginId}&manager_id=${manager_id}' />">내가 댓글 쓴 글보기</a>
                             </div>
                             <div class="loginInfo_area2">
                                     <%--    cafe_name, loginId + 요청 - bulletinForm.jsp      --%>
@@ -693,9 +700,7 @@
                         </div>
                         <div id="bulletin_content_area" class="bulletin_area">
                             <textarea rows="20" id="bulletin_content_txt" class="bulletin_txt" name="content"
-                                      readonly='readonly'>
-                                ${bulletinDto.content}
-                            </textarea>
+                                      readonly='readonly'>${bulletinDto.content}</textarea>
                         </div>
                         <div id="bulletin_button_area" class="bulletin_area">
                             <c:if test="${loginId == bulletinDto.id}">
@@ -710,6 +715,7 @@
                         <input type="hidden" name="option" value="${pc.option}">
                         <input type="hidden" name="keyword" value="${pc.keyword}">
                         <input type="hidden" name="cafe_name" value="${pc.cafe_name}">
+                        <input type="hidden" name="bulletin_board" value="${pc.bulletin_board}">
                         <input type="hidden" name="bno" value="${bulletinDto.bno}">
                         <input type="hidden" name="manager_id" value="${manager_id}">
                         <%--    js에서 서버 세션에 접근 불가능 하므로 세션에 있는 아이디를 hidden으로 가져오기    --%>
@@ -771,7 +777,7 @@
         }
         //  사용자 모드가 아닐때
         else {
-            window.location.href = "<c:url value='/bulletin/list?page=${pc.page}&option=${pc.option}&keyword=${pc.keyword}&cafe_name=${pc.cafe_name}&loginId=${loginId}&manager_id=${manager_id}' />";
+            window.location.href = "<c:url value='/bulletin/list?page=${pc.page}&option=${pc.option}&keyword=${pc.keyword}&cafe_name=${pc.cafe_name}&bulletin_board=${pc.bulletin_board}&loginId=${loginId}&manager_id=${manager_id}' />";
         }
     }
 
@@ -841,7 +847,7 @@
             tmp += '>'
             tmp += ' <div class="comment_id">' + comment.id + '</div>'
             tmp += ' <div class="comment_comment">' + comment.comment + '</div>'
-            tmp += ' <div class="comment_items>'
+            tmp += ' <div class="comment_items">'
             tmp += ' <h1 class="comment_upDate">' + comment.up_date + '</h1>'
             if (id === comment.id) {
                 tmp += ' <button class="comment_rmvBtn">삭제</button>'
@@ -983,7 +989,7 @@
         })
 
         //  댓글 삭제하는 메서드
-        $("#comment_wrap").on("click", ".rmvBtn", function () {
+        $("#comment_wrap").on("click", ".comment_rmvBtn", function () {
 
             //  수정 + 답글 화면 원래 위치로 초기화
             $("#commentMdf_wrap").appendTo($("#rightMain"));
@@ -992,7 +998,7 @@
             $("#commentMdf_wrap").css("display", "none");
 
             //  현재 댓글의 cno 얻어오기
-            let cno = $(this).parent().parent().parent().attr("data-cno");
+            let cno = $(this).parent().parent().attr("data-cno");
 
             $.ajax({
                 method: 'DELETE',
@@ -1011,7 +1017,7 @@
 
 
         //  댓글 수정 화면 보여주는 메서드
-        $("#comment_wrap").on("click", ".modBtn", function () {
+        $("#comment_wrap").on("click", ".comment_modBtn", function () {
 
             //  답글 화면 원래 위치로 초기화
             $("#commentRpl_wrap").appendTo($("#rightMain"));
@@ -1030,7 +1036,7 @@
 
 
         //  댓글 답글 화면 보여주는 메서드
-        $("#comment_wrap").on("click", ".repBtn", function () {
+        $("#comment_wrap").on("click", ".comment_repBtn", function () {
 
             //  수정 화면 원래 위치로 초기화
             $("#commentMdf_wrap").appendTo($("#rightMain"));

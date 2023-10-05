@@ -43,7 +43,7 @@
     <select id="selectPageCondition" parameterType="PageCondition" resultType="CafeDto">
         select * from cafe
         where true <include refid="PageCondition" />
-        order by member
+        order by member DESC
         limit #{offset}, #{pageSize};
     </select>
 

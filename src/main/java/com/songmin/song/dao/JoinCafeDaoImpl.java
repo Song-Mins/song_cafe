@@ -23,4 +23,10 @@ public class JoinCafeDaoImpl implements JoinCafeDao {
     public int insertJoinCafe(JoinCafeDto joinCafeDto) throws Exception {
         return session.insert(namespace + "insert", joinCafeDto);
     }
+
+    @Override
+    public int deleteJoinCafe(JoinCafeDto joinCafeDto) throws Exception {
+        return session.delete(namespace + "delete", joinCafeDto);
+    }
+
 }

@@ -129,13 +129,14 @@
         .board_name_item {
             height: 30%;
             margin: 5px;
+            padding: 0 10px;
             font-weight: 500;
         }
 
         #board_btn_item {
             width: 70%;
             height: 50%;
-            background-color: rgb(12, 3, 111);
+            background-color: rgb(50, 50, 100);
             color: white;
             font-size: 25px;
             font-weight: 600;
@@ -461,10 +462,10 @@
         <div id="main_inner">
             <div id="leftMain">
                 <div id="cafeInfo_wrap">
-                    <div class="cafeInfo_area">
+                    <div id="cafeInfo_name">
                         <h1>${cafeDto.name}</h1>
                     </div>
-                    <div class="cafeInfo_area">
+                    <div id="cafeInfo_info">
                         <a href="<c:url value='/cafe/read?cafe_name=${cafeDto.name}&loginId=${loginId}&manager_id=${cafeDto.manager_id}'/>">카페정보</a>
                     </div>
                 </div>
@@ -473,10 +474,10 @@
                         <%--    카페 가입 상태이면    --%>
                         <c:when test="${joinCafeList.contains(cafeDto.name)}">
                             <div class="loginInfo_area1">
-                                <a href="<c:url value=''/>">내가 쓴 글보기</a>
+                                <a href="<c:url value='/bulletin/list?readId=${loginId}&cafe_name=${pc.cafe_name}&loginId=${loginId}&manager_id=${manager_id}' />">내가 쓴 글보기</a>
                             </div>
                             <div class="loginInfo_area1">
-                                <a href="<c:url value=''/>">내가 댓글 쓴 글보기</a>
+                                <a href="<c:url value='/comment/list?readId=${loginId}&cafe_name=${pc.cafe_name}&loginId=${loginId}&manager_id=${manager_id}' />">내가 댓글 쓴 글보기</a>
                             </div>
                             <div class="loginInfo_area2">
                                     <%--    cafe_name, loginId + 요청 - bulletinForm.jsp      --%>

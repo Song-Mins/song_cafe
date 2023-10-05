@@ -29,9 +29,15 @@ public class CommentController {
         List<CommentDto> commentDtoList = null;
         List<Integer> commentBnoList = new ArrayList<>();
 
+        CommentDto commentDto = new CommentDto();
+        commentDto.setId(pc.getReadId());
+        commentDto.setCafe_name(pc.getCafe_name());
+
+
         try {
             //  작성자가 쓴 댓글들을 가져옴
-            commentDtoList = commentService.getIdComments(pc.getReadId());
+            commentDtoList = commentService.getIdComments(commentDto);
+            System.out.println("commentDtoList = " + commentDtoList);
 
             //  댓글들의 게시글 번호를 변수에 저장
             for (CommentDto comment : commentDtoList) {
@@ -42,6 +48,8 @@ public class CommentController {
             HashSet<Integer> hs = new HashSet<>(commentBnoList);
             commentBnoList.clear();
             commentBnoList.addAll(hs);
+
+            System.out.println("commentBnoList = " + commentBnoList);
 
         } catch (Exception e) {
             e.printStackTrace();

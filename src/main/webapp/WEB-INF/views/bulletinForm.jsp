@@ -127,13 +127,14 @@
         .board_name_item {
             height: 30%;
             margin: 5px;
+            padding: 0 10px;
             font-weight: 500;
         }
 
         #board_btn_item {
             width: 70%;
             height: 50%;
-            background-color: rgb(12, 3, 111);
+            background-color: rgb(50, 50, 100);
             color: white;
             font-size: 25px;
             font-weight: 600;
@@ -426,9 +427,9 @@
         <div class="board_area" id="board_btn_area">
             <button type="submit" id="board_btn_item">게시판 생성</button>
         </div>
-        <input type="hidden" name="cafe_name" value="${cafeDto.name}">
+        <input type="hidden" name="cafe_name" value="${pc.cafe_name}">
         <input type="hidden" name="loginId" value="${loginId}">
-        <input type="hidden" name="manager_id" value="${cafeDto.manager_id}">
+        <input type="hidden" name="manager_id" value="${manager_id}">
 
     </form>
 </div>
@@ -481,10 +482,10 @@
                         <%--    카페 가입 상태이면    --%>
                         <c:when test="${joinCafeList.contains(pc.cafe_name)}">
                             <div class="loginInfo_area1">
-                                <a href="<c:url value=''/>">내가 쓴 글보기</a>
+                                <a href="<c:url value='/bulletin/list?readId=${loginId}&cafe_name=${pc.cafe_name}&loginId=${loginId}&manager_id=${manager_id}' />">내가 쓴 글보기</a>
                             </div>
                             <div class="loginInfo_area1">
-                                <a href="<c:url value=''/>">내가 댓글 쓴 글보기</a>
+                                <a href="<c:url value='/comment/list?readId=${loginId}&cafe_name=${pc.cafe_name}&loginId=${loginId}&manager_id=${manager_id}' />">내가 댓글 쓴 글보기</a>
                             </div>
                             <div class="loginInfo_area2">
                                     <%--    cafe_name, loginId + 요청 - bulletinForm.jsp      --%>
@@ -540,12 +541,10 @@
                         </div>
 
                         <div id="bulletin_title_area" class="bulletin_area">
-                            <label for="bulletin_title_ipt">제목</label>
                             <form:input id="bulletin_title_ipt" path="title"/>
                         </div>
 
                         <div id="bulletin_content_area" class="bulletin_area">
-                            <label for="bulletin_content_txt">내용</label>
                             <form:textarea id="bulletin_content_txt" path="content"/>
                         </div>
 

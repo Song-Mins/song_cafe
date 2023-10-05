@@ -25,6 +25,7 @@ public class CommentServiceImpl implements CommentService {
 
         Integer bno = commentDto.getBno();
         BulletinDto bulletinDto = bulletinDao.selectBulletin(bno);
+        System.out.println("bulletinDto = " + bulletinDto);
 
         bulletinDto.setComment_cnt(bulletinDto.getComment_cnt() + 1);
         bulletinDao.updateBulletin(bulletinDto);
@@ -43,8 +44,8 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<CommentDto> getIdComments(String id) throws Exception {
-        return commentDao.selectIdComment(id);
+    public List<CommentDto> getIdComments(CommentDto commentDto) throws Exception {
+        return commentDao.selectIdComment(commentDto);
     }
 
     @Override

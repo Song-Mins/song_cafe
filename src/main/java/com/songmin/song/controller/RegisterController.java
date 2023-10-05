@@ -65,7 +65,7 @@ public class RegisterController {
 		try {
 			if(registerCheck(userDto)) {
 		 		service.register(userDto);
-				rttr.addFlashAttribute("msg","registerFinish");
+				rttr.addFlashAttribute("msg","register_OK");
 				return "redirect:/";
 			}
 		} catch (Exception e) {
@@ -73,7 +73,7 @@ public class RegisterController {
 			return "error";
 		}
 
-		rttr.addFlashAttribute("msg", "registerError");
+		rttr.addFlashAttribute("msg", "register_ERR");
 		return "redirect:/register/add";
 	}
 

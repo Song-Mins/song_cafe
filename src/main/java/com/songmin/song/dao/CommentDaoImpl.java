@@ -34,8 +34,8 @@ public class CommentDaoImpl implements CommentDao {
     }
 
     @Override
-    public List<CommentDto> selectIdComment(String id) {
-        return session.selectList(namespace+"selectIdComments", id);
+    public List<CommentDto> selectIdComment(CommentDto commentDto) {
+        return session.selectList(namespace+"selectIdComments", commentDto);
     }
 
     @Override
@@ -61,7 +61,10 @@ public class CommentDaoImpl implements CommentDao {
         return session.delete(namespace+"deleteAll", bno);
     }
 
-
+    @Override
+    public int deleteIdComment(CommentDto commentDto) throws Exception {
+        return session.delete(namespace+"deleteId", commentDto);
+    }
 
 
 }

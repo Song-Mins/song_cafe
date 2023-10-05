@@ -25,27 +25,23 @@ public class BulletinDaoImplTest {
     @Test
     public void insertBulletin() throws Exception {
         bulletinDao.deleteBulletin();
-        BulletinDto bulletinDto = new BulletinDto("a", "ddd", "fff", "ggg");
+        BulletinDto bulletinDto = new BulletinDto("프로그래밍", "프로그래밍", "fff", "ggg");
         int rowCnt = bulletinDao.insertBulletin(bulletinDto);
         assertTrue(rowCnt == 1);
     }
     @Test
     public void insertBulletins() throws Exception {
         bulletinDao.deleteBulletin();
-        for(int i=1; i<23; i++) {
-            BulletinDto bulletinDto = new BulletinDto("programming", "java","pro_good boy" + i, "hello_programming" + i, "song");
+        for(int i=1; i<45; i++) {
+            BulletinDto bulletinDto = new BulletinDto("프로그래밍", "자바 게시판","자바 프로그래밍 " + i, "자바 프로그래밍 자바 프로그래밍 자바 프로그래밍 자바 프로그래밍 자바 프로그래밍 자바 프로그래밍 자바 프로그래밍", "ssoogg5309");
             bulletinDao.insertBulletin(bulletinDto);
         }
-        for(int i=1; i<23; i++) {
-            BulletinDto bulletinDto = new BulletinDto("programming", "python","pro_nice body" + i, "hello_programming" + i, "song");
+        for(int i=1; i<45; i++) {
+            BulletinDto bulletinDto = new BulletinDto("프로그래밍", "파이썬 게시판","파이썬 프로그래밍 " + i, "파이썬 프로그래밍 파이썬 프로그래밍 파이썬 프로그래밍 파이썬 프로그래밍 파이썬 프로그래밍 파이썬 프로그래밍 파이썬 프로그래밍", "ssoogg5309");
             bulletinDao.insertBulletin(bulletinDto);
         }
-        for(int i=1; i<23; i++) {
-            BulletinDto bulletinDto = new BulletinDto("programming", "c","title_kind girl" + i, "hello_programming" + i, "song");
-            bulletinDao.insertBulletin(bulletinDto);
-        }
-        for(int i=1; i<23; i++) {
-            BulletinDto bulletinDto = new BulletinDto("programming", "free","title_pretty master" + i, "hello_programming" + i, "song");
+        for(int i=1; i<45; i++) {
+            BulletinDto bulletinDto = new BulletinDto("프로그래밍", "C언어 게시판","C언어 프로그래밍 " + i, "C언어 프로그래밍 C언어 프로그래밍 C언어 프로그래밍 C언어 프로그래밍 C언어 프로그래밍 C언어 프로그래밍 C언어 프로그래밍", "ssoogg5309");
             bulletinDao.insertBulletin(bulletinDto);
         }
     }

@@ -10,7 +10,7 @@ public interface CommentService {
 
     List<CommentDto> getList(Integer bno) throws Exception;
 
-    List<CommentDto> getIdComments(String id) throws Exception;
+    List<CommentDto> getIdComments(CommentDto commentDto) throws Exception;
 
     int modify(CommentDto commentDto) throws Exception;
 
