@@ -56,8 +56,9 @@
     
 - 카페 정보
   
-- 게시글 검색
-https://github.com/Song-Mins/song_cafe/assets/130220205/93f3ea00-98d3-4127-bf99-e199e5ddca23
+- 게시글 검색    
+![ezgif com-video-to-gif (13)](https://github.com/Song-Mins/song_cafe/assets/130220205/7c42de80-d31b-4a9e-8fa3-5b874217acdb)
+
 
 - 게시판 생성
   - 카페 관리자 일때만 보임
