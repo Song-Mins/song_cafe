@@ -16,10 +16,11 @@
 
 ### 카페홈 화면
 - 상단 메뉴바
-  - 주제별, 지역별, 카페 랭킹, 내가 가입한 카페(로그인 상태)   
+  - 주제별 카페, 지역별 카페, 카페 랭킹, 내가 가입한 카페(로그인 상태 일때만)   
   ![ezgif com-video-to-gif (1)](https://github.com/Song-Mins/song_cafe/assets/130220205/ad59e59c-4407-4845-becd-6402ffbf341b)
 
-- 카페 검색   
+- 카페 검색 
+  -  카페명으로 카페 검색   
   ![ezgif com-video-to-gif (2)](https://github.com/Song-Mins/song_cafe/assets/130220205/b3357067-38bd-4e4b-a163-0991903339ee)
 
 - 카페 생성
@@ -40,7 +41,7 @@
 
   
 - 내가 작성한 글, 댓글쓴 글   
-  - (로그인 상태 + 카페 가입 상태) 일때만 보임   
+  - (로그인 상태 + 카페 가입 상태) 일때만 보임    
   ![ezgif com-video-to-gif (11)](https://github.com/Song-Mins/song_cafe/assets/130220205/90fdbc80-7fd7-4ad2-860a-1afc0ed4bb48)
 
 
@@ -56,8 +57,9 @@
     
 - 카페 정보
   
-- 게시글 검색    
-![ezgif com-video-to-gif (13)](https://github.com/Song-Mins/song_cafe/assets/130220205/7c42de80-d31b-4a9e-8fa3-5b874217acdb)
+- 게시글 검색
+  - 제목으로 게시글 검색    
+  ![ezgif com-video-to-gif (13)](https://github.com/Song-Mins/song_cafe/assets/130220205/7c42de80-d31b-4a9e-8fa3-5b874217acdb)
 
 
 - 게시판 생성
