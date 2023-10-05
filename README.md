@@ -79,7 +79,9 @@
   - 검색 필터, 페이지 상태 유지
 
 - 댓글 + 답글 쓰기, 수정, 삭제
-  - 자기가 쓴 댓글 + 답글 일때만 수정, 삭제 버튼 
+  - 자기가 쓴 댓글 + 답글 일때만 수정, 삭제 버튼   
+  ![ezgif com-video-to-gif (10)](https://github.com/Song-Mins/song_cafe/assets/130220205/cb38e915-6791-445d-a013-a2935a5472fb)
+
   
 
 
