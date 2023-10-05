@@ -39,7 +39,7 @@
   ![ezgif com-video-to-gif (8)](https://github.com/Song-Mins/song_cafe/assets/130220205/1b1d751c-f610-4e3d-bf7d-92f9d3953ea1)
 
   
-- 내가 작성한 글, 댓글쓴 글
+- 내가 작성한 글, 댓글쓴 글   
   - (로그인 상태 + 카페 가입 상태) 일때만 보임
   ![ezgif com-video-to-gif (11)](https://github.com/Song-Mins/song_cafe/assets/130220205/90fdbc80-7fd7-4ad2-860a-1afc0ed4bb48)
 
