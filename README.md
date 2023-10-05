@@ -66,8 +66,9 @@
 
 - 게시판 생성
   - 카페 관리자 일때만 보임
-  - 게시판 생성후 해당 게시판으로 이동
-    
+  - 게시판 생성후 해당 게시판으로 이동   
+  ![ezgif com-video-to-gif (16)](https://github.com/Song-Mins/song_cafe/assets/130220205/b14e91b4-16a0-42a7-bf12-3626a2d0000d)
+
 - 모든 게시글 삭제
   - 카페 관리자 일때만 보임
   ![ezgif com-video-to-gif (12)](https://github.com/Song-Mins/song_cafe/assets/130220205/8da9c4b6-a15e-4f7e-8998-7c1a839485ac)
