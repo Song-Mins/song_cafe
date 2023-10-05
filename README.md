@@ -40,7 +40,7 @@
 
   
 - 내가 작성한 글, 댓글쓴 글   
-  - (로그인 상태 + 카페 가입 상태) 일때만 보임
+  - (로그인 상태 + 카페 가입 상태) 일때만 보임   
   ![ezgif com-video-to-gif (11)](https://github.com/Song-Mins/song_cafe/assets/130220205/90fdbc80-7fd7-4ad2-860a-1afc0ed4bb48)
 
 
@@ -86,7 +86,9 @@
     
 - 목록 버튼
   - 게시글을 보기전 카페 메인 화면으로 이동
-  - 검색 필터, 페이지 상태 유지
+  - 게시글 검색 필터 + 페이지 상태 유지   
+  ![ezgif com-video-to-gif (15)](https://github.com/Song-Mins/song_cafe/assets/130220205/638d1a0c-5e96-4c01-b41d-ef37cd15e6c4)
+
 
 - 댓글 + 답글 쓰기, 수정, 삭제
   - 자기가 쓴 댓글 + 답글 일때만 수정, 삭제 버튼   
