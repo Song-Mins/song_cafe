@@ -35,7 +35,7 @@
   ![ezgif com-video-to-gif (7)](https://github.com/Song-Mins/song_cafe/assets/130220205/d1d03906-5da0-431c-bfdc-297ec364e389)
 
 - 게시글 쓰기
-  - (로그인 상태 + 카페 가입 상태) 일때만 보임
+  - (로그인 상태 + 카페 가입 상태) 일때만 보임    
   ![ezgif com-video-to-gif (8)](https://github.com/Song-Mins/song_cafe/assets/130220205/1b1d751c-f610-4e3d-bf7d-92f9d3953ea1)
 
   
@@ -65,7 +65,9 @@
 
 ### 게시글 화면
 - 게시글 수정, 삭제
-  - 자기가 쓴 게시글 일때만 보임
+  - 자기가 쓴 게시글 일때만 보임   
+  ![ezgif com-video-to-gif (9)](https://github.com/Song-Mins/song_cafe/assets/130220205/80508744-ecb1-470d-937b-fba842a7a8b9)
+
     
 - 목록 버튼
   - 게시글을 보기전 카페 메인 화면으로 이동
@@ -81,7 +83,7 @@
 ### 로그인 화면
 - 로그인
   - 아이디 기억 체크시 다음 로그인때 아이디 기억
-  - 로그인 성공후 로그인 화면을 요청한 곳으로 이동   
+  - 로그인 성공후 로그인 화면을 요청한 곳으로 이동      
   ![ezgif com-video-to-gif (6)](https://github.com/Song-Mins/song_cafe/assets/130220205/bbb8a078-308c-4d08-b85f-fa7256557005)
 
     
