@@ -1,5 +1,4 @@
-![homehome](https://github.com/Song-Mins/song_cafe/assets/130220205/9e00f438-6739-42b5-baac-dfe51865c8c7)
-
+![home](https://github.com/Song-Mins/song_cafe/assets/130220205/bf65646c-b499-45b0-b164-d935a18c5f72)    
 
 ## 💡 프로젝트 주제 
 - "song" 포털 사이트의 **카페** 서비스  
