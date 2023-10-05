@@ -72,6 +72,8 @@
 - 회원 강퇴
   - 카페 관리자 일때만 보임
   - 해당 카페에서 작성한 글 + 댓글 모두 삭제   
+  ![ezgif com-video-to-gif (14)](https://github.com/Song-Mins/song_cafe/assets/130220205/6c55d264-0a73-4d27-9e09-a52423e4c393)
+
   
 
 
