@@ -129,6 +129,8 @@
   - 댓글 작성 후 게시글 댓글 수 1 증가
   ![ezgif com-video-to-gif (10)](https://github.com/Song-Mins/song_cafe/assets/130220205/cb38e915-6791-445d-a013-a2935a5472fb)
 
+#
+
 ### 로그인 화면
 - 로그인
   - 아이디 기억 체크시 다음 로그인때 아이디 자동 입력
