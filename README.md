@@ -105,7 +105,7 @@
 
 - 회원 강퇴
   - 카페 관리자 일때만 보임
-  - 해당 카페에서 작성한 글 + 댓글 모두 삭제   
+  - 사용자가 카페에서 작성한 글 + 댓글 모두 삭제   
   ![ezgif com-video-to-gif (14)](https://github.com/Song-Mins/song_cafe/assets/130220205/6c55d264-0a73-4d27-9e09-a52423e4c393)
 
 #
@@ -139,14 +139,14 @@
 
 ### 아이디, 비밀번호 찾기 화면
 - 아이디 찾기
-  - 값을 입력하지 않으면 입력해라는 알림
+  - 값을 입력하지 않으면 값을 입력해라는 알림
   - 입력한 정보와 일치하는 회원 없으면 일치하는 정보 없다는 알림    
   ![ezgif com-video-to-gif (4)](https://github.com/Song-Mins/song_cafe/assets/130220205/29044bc8-0531-4fd0-9f13-8ceaa83f3700)
 
 ####
 
 - 비밀번호 찾기
-  - 값을 입력하지 않으면 입력해라는 알림
+  - 값을 입력하지 않으면 값을 입력해라는 알림
   - 입력한 정보와 일치하는 회원 없으면 일치하는 정보 없다는 알림   
   ![ezgif com-video-to-gif (5)](https://github.com/Song-Mins/song_cafe/assets/130220205/a750afc7-6b2e-4f35-a01c-05fbc5fed106)
 
