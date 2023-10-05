@@ -41,7 +41,9 @@
   
 - 내가 작성한 글, 댓글쓴 글
   - (로그인 상태 + 카페 가입 상태) 일때만 보임   
-  ![ezgif com-video-to-gif (10)](https://github.com/Song-Mins/song_cafe/assets/130220205/2b18fcb4-1a46-403c-8fd0-31c606f74078)
+  https://github.com/Song-Mins/song_cafe/assets/130220205/3837e333-c6ac-4f49-bd63-a4de615a4fff
+
+
 
 - 사용자가 작성한 글, 댓글쓴 글
   - (로그인 상태 + 카페 가입 상태) 일때만 가능
@@ -56,6 +58,7 @@
 - 카페 정보
   
 - 게시글 검색
+https://github.com/Song-Mins/song_cafe/assets/130220205/93f3ea00-98d3-4127-bf99-e199e5ddca23
 
 - 게시판 생성
   - 카페 관리자 일때만 보임
