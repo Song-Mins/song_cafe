@@ -66,6 +66,8 @@ https://github.com/Song-Mins/song_cafe/assets/130220205/93f3ea00-98d3-4127-bf99-
     
 - 모든 게시글 삭제
   - 카페 관리자 일때만 보임
+  ![ezgif com-video-to-gif (12)](https://github.com/Song-Mins/song_cafe/assets/130220205/8da9c4b6-a15e-4f7e-8998-7c1a839485ac)
+
 
 - 회원 강퇴
   - 카페 관리자 일때만 보임
