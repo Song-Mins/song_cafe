@@ -92,20 +92,20 @@
 
 - 게시판 생성
   - 카페 관리자 일때만 보임
-  - 게시판 생성후 해당 게시판으로 이동   
+  - 게시판 생성후 해당 게시판으로 이동    
   ![ezgif com-video-to-gif (16)](https://github.com/Song-Mins/song_cafe/assets/130220205/b14e91b4-16a0-42a7-bf12-3626a2d0000d)
 
 ####
 
 - 모든 게시글 삭제 권환
-  - 카페 관리자 일때만 보임
+  - 카페 관리자 일때만 보임    
   ![ezgif com-video-to-gif (12)](https://github.com/Song-Mins/song_cafe/assets/130220205/8da9c4b6-a15e-4f7e-8998-7c1a839485ac)
 
 ####
 
 - 회원 강퇴
   - 카페 관리자 일때만 보임
-  - 사용자가 카페에서 작성한 글 + 댓글 모두 삭제   
+  - 사용자가 카페에서 작성한 글 + 댓글 모두 삭제    
   ![ezgif com-video-to-gif (14)](https://github.com/Song-Mins/song_cafe/assets/130220205/6c55d264-0a73-4d27-9e09-a52423e4c393)
 
 #
@@ -113,7 +113,7 @@
 ### 게시글 화면
 - 게시글 수정, 삭제
   - 자기가 쓴 게시글 일때만 보임
-  - 게시글 삭제 후 카페 메인 화면의 1페이지로 이동
+  - 게시글 삭제 후 카페 메인 화면의 1페이지로 이동    
   ![ezgif com-video-to-gif (9)](https://github.com/Song-Mins/song_cafe/assets/130220205/80508744-ecb1-470d-937b-fba842a7a8b9)
 
 ####
@@ -127,7 +127,7 @@
 
 - 댓글 + 답글 쓰기, 수정, 삭제
   - 자기가 쓴 댓글 + 답글 일때만 수정, 삭제 버튼 보임
-  - 댓글 작성 후 게시글 댓글 수 1 증가
+  - 댓글 작성 후 게시글 댓글 수 1 증가    
   ![ezgif com-video-to-gif (10)](https://github.com/Song-Mins/song_cafe/assets/130220205/cb38e915-6791-445d-a013-a2935a5472fb)
 
 #
